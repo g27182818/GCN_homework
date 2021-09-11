@@ -46,4 +46,5 @@ pip install -U ogb
 # additional package required for dgl implementation
 pip install dgl-cu102
 pip install h5py
+pip install matplotlib
 
