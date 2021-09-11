@@ -107,30 +107,7 @@ class DeeperGCN(torch.nn.Module):
         edge_emb = self.edge_encoder(edge_attr)
 
         if self.block == 'res+':
-            h = self.gcns[0](h, edge_index, edge_emb)
-
-            if self.checkpoint_grad:
-                for layer in range(1, self.num_layers):
-                    h1 = self.layer_norms[layer-1](h)
-                    h2 = F.relu(h1)
-                    h2 = F.dropout(h2, p=self.dropout, training=self.training)
-                    if layer % self.ckp_k != 0:
-                        res = checkpoint(self.gcns[layer], h2, edge_index, edge_emb)
-                        h = res + h
-                    else:
-                        h = self.gcns[layer](h2, edge_index, edge_emb) + h
-
-            else:
-                for layer in range(1, self.num_layers):
-                    h1 = self.layer_norms[layer-1](h)
-                    h2 = F.relu(h1)
-                    h2 = F.dropout(h2, p=self.dropout, training=self.training)
-                    h = self.gcns[layer](h2, edge_index, edge_emb) + h
-
-            h = F.relu(self.layer_norms[self.num_layers-1](h))
-            h = F.dropout(h, p=self.dropout, training=self.training)
-
-            return self.node_pred_linear(h)
+            raise NotImplementedError('Not available in this homework')
 
         elif self.block == 'res':
 
@@ -138,11 +115,11 @@ class DeeperGCN(torch.nn.Module):
             h = F.dropout(h, p=self.dropout, training=self.training)
 
             for layer in range(1, self.num_layers):
-                h1 = self.gcns[layer](h, edge_index, edge_emb)
-                h2 = self.layer_norms[layer](h1)
-                h = F.relu(h2) + h
-                h = F.dropout(h, p=self.dropout, training=self.training)
-
+                ################# Put your code here #################
+                # TODO: Implement the residual architecture based on
+                # the plain architecture
+                print("Waiting for student implementation")
+                ######################################################
             return self.node_pred_linear(h)
 
         elif self.block == 'dense':
