@@ -4,6 +4,8 @@ In this homework we will explore the basics of the Pytorch-Geometric Package thr
 
 # Part 0: Installation
 
+The [Installation file](deepgcn_env_install.txt) contains all needed comands with respect to the installation of required packages and the activation of the respective environment in anaconda. It is recommended to run all lines sequentially.
+
 # Part 1: Pytorch Geometric Tutorial (0.5 points)
 
 # Part 2: Dataset downloading and exploration (0.5 points)
