@@ -8,7 +8,7 @@ The [Installation file](deepgcn_env_install.txt) contains all needed comands wit
 
 # Part 1: Pytorch Geometric Tutorial (0.5 points)
 
-The [tutorial file](PyTorch Geometric Tutorial/) contains a step by step guide to the construction of a basig graph neural network using the 
+The 'PyTorch Geometric Tutorial' folder contains the [tutorial file](https://github.com/g27182818/GCN_homework/blob/7e4b826915b055442b79ebf4c981dc50ae44a111/PyTorch%20Geometric%20Tutorial/TorchGeometric_tutorial.py) which is a step by step guide to the construction of a basig graph neural network using the [Zachary's karate club](https://en.wikipedia.org/wiki/Zachary%27s_karate_club) dataset. 
 
 # Part 2: Dataset downloading and exploration (0.5 points)
 
