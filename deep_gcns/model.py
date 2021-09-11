@@ -73,6 +73,11 @@ class DeeperGCN(torch.nn.Module):
                               msg_norm=self.msg_norm, learn_msg_scale=learn_msg_scale,
                               encode_edge=conv_encode_edge, edge_feat_dim=hidden_channels,
                               norm=norm, mlp_layers=mlp_layers)
+                
+            ################# Put your code here #################
+            # TODO: Implement other types of convolution operators
+            ######################################################
+            
             else:
                 raise Exception('Unknown Conv Type')
 
