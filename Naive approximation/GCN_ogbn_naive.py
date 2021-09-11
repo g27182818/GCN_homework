@@ -190,7 +190,7 @@ if show_loss:
     plt.plot(np.arange(max_epochs), loss_vec)
     plt.plot(np.arange(0, max_epochs, 10), train_metric, '-o')
     plt.plot(np.arange(0, max_epochs, 10), valid_metric, '-o')
-    plt.legend(["Loss", "Train ROC-AC", "Val ROC-AUC"])
+    plt.legend(["Loss", "Train ROC-AUC", "Val ROC-AUC"])
     plt.xlabel("Epoch")
     plt.grid()
     plt.show()
