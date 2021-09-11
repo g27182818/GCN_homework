@@ -1,4 +1,4 @@
-# %% Importaciones
+# %% Imports
 import torch
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -6,7 +6,7 @@ import time
 import numpy as np
 
 
-# %% Funcion de visualizacion
+# %% Visualization function
 # Visualization function for NX graph or PyTorch tensor
 def visualize(h, color, epoch=None, loss=None):
     # plt.figure(figsize=(7,7))
@@ -20,11 +20,10 @@ def visualize(h, color, epoch=None, loss=None):
             plt.xlabel(f'Epoch: {epoch}, Loss: {loss.item():.4f}', fontsize=16)
     else:
         nx.draw_networkx(G, pos=nx.spring_layout(G, seed=42), with_labels=False,
-                         node_color=color, cmap="Set2")
-    # plt.show()
+                         node_color=color, cmap="Set2")    
 
 
-# %% Declarar karateClub
+# %% Declare karateClub
 from torch_geometric.datasets import KarateClub
 
 dataset = KarateClub()
@@ -34,7 +33,7 @@ print(f'Number of graphs: {len(dataset)}')
 print(f'Number of features: {dataset.num_features}')
 print(f'Number of classes: {dataset.num_classes}')
 
-# %% Visualizacion en mas detalle
+# %% Detailed visualization
 
 data = dataset[0]  # Get the first graph object.
 
@@ -65,7 +64,7 @@ plt.title("Original graph")
 visualize(G, color=data.y)
 plt.show()
 
-# %% Implementacion de capa GCN
+# %% GCN model implementation
 import torch
 from torch.nn import Linear
 from torch_geometric.nn import GCNConv
@@ -97,7 +96,7 @@ class GCN(torch.nn.Module):
 model = GCN()
 print(model)
 
-# %% Visualizacion de modelo sin entrenar
+# %% 2D embedings computed with the unntrained model
 _, h = model(data.x, data.edge_index)
 print(f'Embedding shape: {list(h.shape)}')
 
@@ -110,13 +109,12 @@ plt.title("Unntrained Graph embeding")
 visualize(h, color=data.y)
 plt.show()
 
-# %% Entrenamiento del modelo
-
+# Model, optimizer and loss declaration
 model = GCN()
 criterion = torch.nn.CrossEntropyLoss()  # Define loss criterion.
 optimizer = torch.optim.Adam(model.parameters(), lr=0.01)  # Define optimizer.
 
-
+# %% Model training function
 def train(data):
     optimizer.zero_grad()  # Clear gradients.
     out, h = model(data.x, data.edge_index)  # Perform a single forward pass.
@@ -131,6 +129,7 @@ max_epoch = 1001
 # Loss vec
 loss_vec = np.zeros(max_epoch)
 
+# Dynamic plot
 plt.figure(figsize=(14, 7))
 plt.ion()
 plt.show()
@@ -153,9 +152,4 @@ for epoch in range(1001):
         plt.title("Evolving Loss function")
         plt.draw()
         plt.pause(0.3)
-
-
-
-
-
 
