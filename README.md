@@ -8,7 +8,7 @@ The [Installation file](deepgcn_env_install.txt) contains all needed comands wit
 
 # Part 1: Pytorch Geometric Tutorial (0.5 points)
 
-The [tutorial file](/PyTorch Geometric Tutorial/TorchGeometric_tutorial.py) contains a step by step guide to the construction of a basig graph neural network using the 
+The [tutorial file](PyTorch Geometric Tutorial/) contains a step by step guide to the construction of a basig graph neural network using the 
 
 # Part 2: Dataset downloading and exploration (0.5 points)
 
