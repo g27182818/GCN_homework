@@ -12,38 +12,16 @@ from torch_geometric.utils import to_networkx
 from torch.nn import Linear
 from torch_geometric.nn import GCNConv
 
-#%% Dataset import
-dataset = PygNodePropPredDataset(name = "ogbn-proteins")
+#################### Put your code here ####################
+# TODO: Load the data from the official OGB website
+# TODO: Copy your graph exploration code.
+print("Waiting for dataset load")
+############################################################
 
-split_idx = dataset.get_idx_split()
-train_idx, valid_idx, test_idx = split_idx["train"], split_idx["valid"], split_idx["test"]
 # Define list of indexes
 test_idx_lst = test_idx.tolist()
 train_idx_lst = train_idx.tolist()
 valid_idx_lst = valid_idx.tolist()
-data = dataset[0]
-
-# Complete visualization
-print(f'Dataset: {dataset}:')
-print('======================')
-print(f'Number of graphs: {len(dataset)}')
-print(f'Number of features: {dataset.num_features}')
-print(f'Number of classes: {dataset.num_classes}')
-
-# Specific visualization
-print(data)
-print('==============================================================')
-
-# Gather some statistics about the graph.
-print(f'Number of nodes: {data.num_nodes}')
-print(f'Number of edges: {data.num_edges}')
-print(f'Average node degree: {data.num_edges / data.num_nodes:.2f}')
-# print(f'Number of training nodes: {data.train_mask.sum()}')
-# print(f'Training node label rate: {int(data.train_mask.sum()) / data.num_nodes:.2f}')
-print(f'Contains isolated nodes: {data.contains_isolated_nodes()}')
-print(f'Contains self-loops: {data.contains_self_loops()}')
-#print(f'Is undirected: {data.is_undirected()}')
-
 
 #%% Node feature aggregation
 node_features_path = "nf_file.pt"
