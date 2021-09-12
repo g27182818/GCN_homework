@@ -102,7 +102,7 @@ PyG further refers to (2) **node features** as `x` (each of the 34 nodes is assi
 In total, we are only aware of the ground-truth labels of 4 nodes (one for each community), and the task is to infer the community assignment for the remaining nodes.
 
 The `data` object also provides some **utility functions** to infer some basic properties of the underlying graph.
-For example, we can easily infer whether there exists isolated nodes in the graph (*i.e.* there exists no edge to any node), whether the graph contains self-loops (*i.e.*, <img src="https://latex.codecogs.com/gif.latex?O_t=\text { Onset event at time bin } t " />  $(v, v) \in \mathcal{E}$), or whether the graph is undirected (*i.e.*, for each edge $(v, w) \in \mathcal{E}$ there also exists the edge $(w, v) \in \mathcal{E}$).
+For example, we can easily infer whether there exists isolated nodes in the graph (*i.e.* there exists no edge to any node), whether the graph contains self-loops (*i.e.*,![equation](https://latex.codecogs.com/svg.latex?%5Clarge%20%28v%2C%20v%29%20%5Cin%20%5Cmathcal%7BE%7D)), or whether the graph is undirected (*i.e.*, for each edge ![equation](https://latex.codecogs.com/svg.latex?%5Clarge%20%28v%2C%20w%29%20%5Cin%20%5Cmathcal%7BE%7D) there also exists the edge ![equation](https://latex.codecogs.com/svg.latex?%5Clarge%20%28w%2C%20v%29%20%5Cin%20%5Cmathcal%7BE%7D)).
 
 
 ```python
@@ -116,7 +116,7 @@ By printing `edge_index`, we can further understand how PyG represents graph con
 We can see that for each edge, `edge_index` holds a tuple of two node indices, where the first value describes the node index of the source node and the second value describes the node index of the destination node of an edge.
 
 This representation is known as the **COO format (coordinate format)** commonly used for representing sparse matrices.
-Instead of holding the adjacency information in a dense representation $\mathbf{A} \in \{ 0, 1 \}^{|\mathcal{V}| \times |\mathcal{V}|}$, PyG represents graphs sparsely, which refers to only holding the coordinates/values for which entries in $\mathbf{A}$ are non-zero.
+Instead of holding the adjacency information in a dense representation ![equation](https://latex.codecogs.com/svg.latex?%5Clarge%20%5Cmathbf%7BA%7D%20%5Cin%20%5C%7B%200%2C%201%20%5C%7D%5E%7B%7C%5Cmathcal%7BV%7D%7C%20%5Ctimes%20%7C%5Cmathcal%7BV%7D%7C%7D), PyG represents graphs sparsely, which refers to only holding the coordinates/values for which entries in ![equation](https://latex.codecogs.com/svg.latex?%5Clarge%20%5Cmathbf%7BA%7D) are non-zero.
 
 We can further visualize the graph by converting it to the `networkx` library format, which implements, in addition to graph manipulation functionalities, powerful tools for visualization:
 
@@ -176,7 +176,7 @@ print(model)
 
 Here, we first initialize all of our building blocks in `__init__` and define the computation flow of our network in `forward`.
 We first define and stack **three graph convolution layers**, which corresponds to aggregating 3-hop neighborhood information around each node (all nodes up to 3 "hops" away).
-In addition, the `GCNConv` layers reduce the node feature dimensionality to $2$, *i.e.*, $34 \rightarrow 4 \rightarrow 4 \rightarrow 2$. Each `GCNConv` layer is enhanced by a [tanh](https://pytorch.org/docs/stable/generated/torch.nn.Tanh.html?highlight=tanh#torch.nn.Tanh) non-linearity.
+In addition, the `GCNConv` layers reduce the node feature dimensionality to ![equation](https://latex.codecogs.com/svg.latex?%5Clarge%202), *i.e.*, ![equation](https://latex.codecogs.com/svg.latex?%5Clarge%2034%20%5Crightarrow%204%20%5Crightarrow%204%20%5Crightarrow%202). Each `GCNConv` layer is enhanced by a [tanh](https://pytorch.org/docs/stable/generated/torch.nn.Tanh.html?highlight=tanh#torch.nn.Tanh) non-linearity.
 
 After that, we apply a single linear transformation ([`torch.nn.Linear`](https://pytorch.org/docs/stable/generated/torch.nn.Linear.html?highlight=linear#torch.nn.Linear)) that acts as a classifier to map our nodes to 1 out of the 4 classes/communities.
 
