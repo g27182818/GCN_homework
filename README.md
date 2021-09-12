@@ -40,7 +40,7 @@ In this part of the homework your task is to implement some state of the art GNN
 
 1. Read the `model.py`, `main.py`, `dataset.py` and `args.py` files. You do not have to understand everything but you need to have a general idea of what is happenning inside the code. Answer: Is this method evaluating the whole training set in every iteration as our previous code was doing? How are they computing node features?
 2. Run the `PlainGCN` configuration for 100 epochs and obtain a baseline for your experiments. Append to your report the highest metrics obtained in train, validation and test. For reference, it should take **one and a half** hours to run the whole experiment.
-3. Change the `model.py` file to implement a GAT with one head. Obtain performance metrics and discuss according to what was explained in class. **Bonus (1 point) implement a multi-head GAT (from 2 to 8 heads). This might require to change parts of the conde not previously specified.**    
+3. Change the `model.py` file to implement a GAT with one head (you shall import convolutional operators from `deep_gcns/gcn_lib/sparse/torch_vertex.py`). Obtain performance metrics and discuss according to what was explained in class. **Bonus (1 point) implement a multi-head GAT (from 2 to 8 heads). This might require to change parts of the conde not previously specified.**    
 
 # Part 5: Residual implementation (1 point)
 
