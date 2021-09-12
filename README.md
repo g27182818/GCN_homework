@@ -36,6 +36,13 @@ It is important to note that this network **does not work properly**. Hence, you
 
 # Part 4: Plain State of the art implementation (1 point)
 
+In this part of the homework your task is to implement some state of the art GNN's to solve the problem initially seen in part 3 (this problem is actually due to architecture faliures which are corrected in this new implementation). You will also dive inside the code and implement a new convolutional operator that was not originally published with this method. You will only be modifying the [model.py](https://github.com/g27182818/GCN_homework/blob/5a4d540a21954f4146d373b96fff677906c3b773/deep_gcns/model.py) file inside the `deep_gcns` folder. Please just modify the parts of the code that explicitlly ask to do so, otherwise the whole method could stop working. To obtain the points you have to:
+
+1. Read the `model.py`, `main.py`, `dataset.py` and `args.py` files. You do not have to understand everything but you need to have a general idea of what is happenning inside the code. Answer: Is this method evaluating the whole training set in every iteration as our previous code was doing? How are they computing node features?
+2. Run the `PlainGCN` configuration for 100 epochs and obtain a baseline for your experiments. Append to your report the highest metrics obtained in train, validation and test. For reference, it should take **one and a half** hours to run the whole experiment.
+3. Change the `model.py` file to implement a GAT with one head. Obtain performance metrics and discuss according to what was explained in class. 
+**4. Bonus (1 point) implement a multi-head GAT (from 2 to 8 heads). This might require to change parts of the conde not previously specified.**    
+
 # Part 5: Residual implementation (1 point)
 
 # Part 6: Hyperparameter experimentation (1 point)
