@@ -23,6 +23,17 @@ In this part you will be downloading and exploring the [OGBN-Proteins dataset](h
 
 # Part 3: Naive approximation (1 point)
 
+The `Naive Aproximation` folder contains a [first approach file](https://github.com/g27182818/GCN_homework/blob/48352d34cf625421610f1a7d0681354c0fd8e7c0/Naive%20approximation/GCN_ogbn_naive.py). This file constructs a GNN based on the one proposed on the tutorial.
+
+Your first task is to add parts of your previous script to load the dataset correctly. Once you have done this, you will be able to train and evaluate the network (A final figure with training loss and metrics in train and val will be produced).
+
+It is important to note that this network **does not work properly**. Hence, your task is to understand why this happens. To obtain the points you must:
+
+1. Append the final plot produced by your code in your report.
+2. Add a breakpoint in the final embedings of the nodes (epoch 100) and seek for possible problems in terms of what was explained on class.
+3. Answer: why doesn't this network work properly? You can use histograms, simple statistics or other kind of data to support your answer.
+ 
+
 # Part 4: Plain State of the art implementation (1 point)
 
 # Part 5: Residual implementation (1 point)
