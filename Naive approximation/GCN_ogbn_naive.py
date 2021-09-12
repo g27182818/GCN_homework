@@ -12,7 +12,7 @@ from torch_geometric.utils import to_networkx
 from torch.nn import Linear
 from torch_geometric.nn import GCNConv
 
-#%% Importacion del dataset de proteinas
+#%% Dataset import
 dataset = PygNodePropPredDataset(name = "ogbn-proteins")
 
 split_idx = dataset.get_idx_split()
@@ -23,14 +23,14 @@ train_idx_lst = train_idx.tolist()
 valid_idx_lst = valid_idx.tolist()
 data = dataset[0]
 
-# Visualizacion de dataset completo
+# Complete visualization
 print(f'Dataset: {dataset}:')
 print('======================')
 print(f'Number of graphs: {len(dataset)}')
 print(f'Number of features: {dataset.num_features}')
 print(f'Number of classes: {dataset.num_classes}')
 
-# Visualizacion de grafo especifico
+# Specific visualization
 print(data)
 print('==============================================================')
 
@@ -45,8 +45,7 @@ print(f'Contains self-loops: {data.contains_self_loops()}')
 #print(f'Is undirected: {data.is_undirected()}')
 
 
-#%% Agregacion para obtener features de nodo
-
+#%% Node feature aggregation
 node_features_path = "nf_file.pt"
 node_features_aggr = 'add'  # Can be 'add', 'mean', 'max'
 total_no_of_nodes = data.y.shape[0]
@@ -67,8 +66,7 @@ else:
     print('Node features extracted are saved into file {}'.format(node_features_path))
 
 
-#%% Definicion del modelo
-
+#%% Model definition
 class GCN(torch.nn.Module):
     def __init__(self):
         super(GCN, self).__init__()
@@ -133,9 +131,6 @@ def evaluation(dataset, model, evaluator, device, epoch):
 
     out, h = model(x, data.edge_index.to(device))
     pred = torch.sigmoid(out)
-    # if epoch == 100:
-    #     breakpoint()
-    # #pred = out
 
     eval_result = {}
 
@@ -181,7 +176,7 @@ end = time.time()
 print("Total elapsed time: "+str(end-start))
 print("Average time per epoch: "+str((end-start)/max_epochs))
 
-# Parametro para mostrar grafica
+# Parameter for showing loss function
 show_loss = True
 
 if show_loss:
@@ -196,10 +191,4 @@ if show_loss:
     plt.show()
 
 
-
-
-
-
-# print("Train metric: " + str(eval_dict["train"]))
-# print("Validation metric: " + str(eval_dict["valid"]))
 
