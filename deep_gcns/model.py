@@ -20,6 +20,9 @@ class DeeperGCN(torch.nn.Module):
         hidden_channels = args.hidden_channels
         num_tasks = args.num_tasks
         conv = args.conv
+        ################# Put your code here ###################
+        # TODO: Add class atribute with value args.conv
+        ########################################################
         aggr = args.gcn_aggr
 
         t = args.t
@@ -74,9 +77,9 @@ class DeeperGCN(torch.nn.Module):
                               encode_edge=conv_encode_edge, edge_feat_dim=hidden_channels,
                               norm=norm, mlp_layers=mlp_layers)
                 
-            ################# Put your code here #################
-            # TODO: Implement other types of convolution operators
-            ######################################################
+            ################# Put your code here ###################
+            # TODO: Implement GAT convolution operator with one head
+            ########################################################
             
             else:
                 raise Exception('Unknown Conv Type')
@@ -131,12 +134,19 @@ class DeeperGCN(torch.nn.Module):
             raise NotImplementedError('To be implemented')
 
         elif self.block == 'plain':
-
+            ################# Put your code here ###################
+            # TODO: Manage the cases of 'gen' and GAT convolution in
+            # terms of the inputs of their forward functions
             h = F.relu(self.layer_norms[0](self.gcns[0](h, edge_index, edge_emb)))
+            ########################################################
             h = F.dropout(h, p=self.dropout, training=self.training)
 
             for layer in range(1, self.num_layers):
+                ################# Put your code here ###################
+                # TODO: Manage the cases of 'gen' and GAT convolution in
+                # terms of the inputs of their forward functions
                 h1 = self.gcns[layer](h, edge_index, edge_emb)
+                ########################################################
                 h2 = self.layer_norms[layer](h1)
                 h = F.relu(h2)
                 h = F.dropout(h, p=self.dropout, training=self.training)
