@@ -1,4 +1,4 @@
-#%% Importaciones
+#%% Imports
 import os
 import torch
 import time
