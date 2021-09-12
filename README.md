@@ -44,7 +44,7 @@ In this part of the homework your task is to implement some state of the art GNN
 
 # Part 5: Residual implementation (1 point)
 
-Change the `model.py` file to implement a residual GNN. Obtain performance metrics and discuss according to what was explained in class. Answer: Which of the 3 implementations (`PlainGCN`, `GATPlainGCN`, `RESGCN`) resulted in better results. Why do you think this is the case?
+Change the `model.py` file to implement a residual GNN. Obtain performance metrics and discuss according to what was explained in class. Answer: Which of the 3 implementations (`PlainGCN`, `GATPlainGCN`, `ResGCN`) resulted in better results. Why do you think this is the case?
 
 # Part 6: Hyperparameter experimentation (1 point)
 Finally choose your best model from the 3 available. Choose 2 tunnable hyperparameters and 3 values for each one. Perform a 3X3 grid search, report your results and discuss why do you think you obtain your best results with the final model.
