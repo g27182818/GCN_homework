@@ -50,4 +50,4 @@ Change the `model.py` file to implement a residual GNN. Obtain performance metri
 Finally choose your best model from the 3 available. Choose 2 tunnable hyperparameters and 3 values for each one. Perform a 3X3 grid search, report your results and discuss why do you think you obtain your best results with the final model.
 
 # Report
-Please upload to your repository a PDF file named `lastname_hw3.pdf`. Use a text editor such as latex but use single column formating.
+Please upload to your repository a PDF file named `lastname_hw3.pdf`. Use a text editor such as latex but use **single column formating**.
