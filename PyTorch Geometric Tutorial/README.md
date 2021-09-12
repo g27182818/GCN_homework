@@ -102,7 +102,7 @@ PyG further refers to (2) **node features** as `x` (each of the 34 nodes is assi
 In total, we are only aware of the ground-truth labels of 4 nodes (one for each community), and the task is to infer the community assignment for the remaining nodes.
 
 The `data` object also provides some **utility functions** to infer some basic properties of the underlying graph.
-For example, we can easily infer whether there exists isolated nodes in the graph (*i.e.* there exists no edge to any node), whether the graph contains self-loops (*i.e.*, $`(v, v) \in \mathcal{E}`$), or whether the graph is undirected (*i.e.*, for each edge $(v, w) \in \mathcal{E}$ there also exists the edge $(w, v) \in \mathcal{E}$).
+For example, we can easily infer whether there exists isolated nodes in the graph (*i.e.* there exists no edge to any node), whether the graph contains self-loops (*i.e.*, <img src="https://latex.codecogs.com/gif.latex?O_t=\text { Onset event at time bin } t " />  $(v, v) \in \mathcal{E}$), or whether the graph is undirected (*i.e.*, for each edge $(v, w) \in \mathcal{E}$ there also exists the edge $(w, v) \in \mathcal{E}$).
 
 
 ```python
